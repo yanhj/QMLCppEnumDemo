@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>QML/FunctionButtonArea.qml</file>
+    </qresource>
+</RCC>
