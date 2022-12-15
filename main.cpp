@@ -4,8 +4,8 @@
 #include <QtQuick/QQuickView>
 #include <QtCore/QObject>
 #include <QtQml/QQmlEngine>
-#include "ToolButtonHelper.h"
-
+#include "EnumTest.h"
+#include "QStringListTest.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -14,16 +14,19 @@ int main(int argc, char *argv[]) {
     //注册Qml数据
     //方式
     qmlRegisterUncreatableMetaObject(
-      EnumSpace::staticMetaObject, // meta object created by Q_NAMESPACE macro
+            EnumTestSpace::staticMetaObject, // meta object created by Q_NAMESPACE macro
       "EnumDemo",                // import statement (can be any string)
       1, 0,                          // major and minor version of the import
-      "EnumSpace",                 // name in QML (does not have to match C++ name)
+      "EnumTestSpace",                 // name in QML (does not have to match C++ name)
       "Error: only enums"            // error in case someone tries to create a MyNamespace object
     );
-    qRegisterMetaType <EnumSpace::Sex>( "EnumSpace" );
+    qRegisterMetaType <EnumTestSpace::Sex>( "EnumTestSpace" );
 
     //方式2
-    qmlRegisterType<ToolButtonHelper>("EnumDemo", 1, 0, "IconEnum");
+    qmlRegisterType<EnumTest>("EnumDemo", 1, 0, "EnumTest");
+
+    //注册Qml数据
+    qmlRegisterType<QStringListTest>("EnumDemo", 1, 0, "QStringListTest");
 
     const QString mainQmlApp = QStringLiteral("qrc:///QML/FunctionButtonArea.qml");
     view.setSource(QUrl(mainQmlApp));

@@ -6,17 +6,12 @@
 /// @version 1.0.0
 //********************************************************
 
-#include "ToolButtonHelper.h"
+#include "EnumTest.h"
 
-ToolButtonHelper::ToolButtonHelper()
+EnumTest::EnumTest()
 :QObject(){
 }
 
-ToolButtonHelper::~ToolButtonHelper() {
+EnumTest::~EnumTest() {
 
-}
-
-ToolButtonHelper* ToolButtonHelper::instance() {
-    static ToolButtonHelper sInstance;
-    return &sInstance;
 }

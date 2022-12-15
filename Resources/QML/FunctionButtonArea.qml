@@ -15,14 +15,34 @@ Rectangle {
     height: 300
     color:"red"
 
-    IconEnum
+    EnumTest
     {
         id: help
     }
     Text
     {
+        id: text1
         //使用枚举
-        text:help.getIcon(IconEnum.IconDelete) + "\n" + help.getSex(EnumSpace.Female);
+        text:help.getSex2(EnumTest.Female) + "\n" + help.getSex(EnumTestSpace.Male);
+    }
+    onWidthChanged:
+    {
+        console.log("EnumTestSpace")
+        console.log(EnumTestSpace.Female)
+        console.log(EnumTestSpace.Male)
+
+        console.log("EnumTest")
+        console.log(EnumTest.Female)
+        console.log(EnumTest.Male)
+    }
+
+    QStringListTest {
+        id: list
+    }
+    Text {
+        id: text2
+        anchors.top: text1.bottom
+        text: list.getQStringData() + "\n" + list.getListData()[0]
     }
 }
 
