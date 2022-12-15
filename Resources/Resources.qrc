@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>QML/FunctionButtonArea.qml</file>
+        <file>QML/BasicTypeTest.qml</file>
+        <file>QML/main.qml</file>
+        <file>QML/ImageProvider.qml</file>
         <file>images/1.png</file>
+        <file>gif/0.gif</file>
     </qresource>
 </RCC>

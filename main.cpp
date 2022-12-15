@@ -4,14 +4,16 @@
 #include <QtQuick/QQuickView>
 #include <QtCore/QObject>
 #include <QtQml/QQmlEngine>
+#include <QtQml/QQmlApplicationEngine>
+#include <QtQml/QQmlContext>
 #include "EnumTest.h"
 #include "QStringListTest.h"
 #include "QMapTest.h"
 #include "StructTest.h"
+#include "ImageProvider.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    QQuickView view;
 
     //注册Qml数据
     //方式
@@ -26,7 +28,6 @@ int main(int argc, char *argv[]) {
 
     //方式2
     qmlRegisterType<EnumTest>("EnumDemo", 1, 0, "EnumTest");
-
     //注册Qml数据
     qmlRegisterType<QStringListTest>("EnumDemo", 1, 0, "QStringListTest");
     //注册Qml数据
@@ -34,12 +35,12 @@ int main(int argc, char *argv[]) {
     //注册Qml数据
     qmlRegisterType<StructTest>("EnumDemo", 1, 0, "StructTest");
 
-    const QString mainQmlApp = QStringLiteral("qrc:///QML/FunctionButtonArea.qml");
-    view.setSource(QUrl(mainQmlApp));
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-
-    QObject::connect(view.engine(), SIGNAL(quit()), qApp, SLOT(quit()));
-    view.setGeometry(QRect(100, 100, 360, 640));
-    view.show();
-    return QApplication::exec();
+    const QString mainQmlApp =  QStringLiteral("qrc:///QML/main.qml");
+    ImageProvider* imageProvider = new ImageProvider();
+    QQmlApplicationEngine qml;
+    qml.addImageProvider("imageProvider", imageProvider->getImageProvider());
+    qml.rootContext()->setContextProperty("imageProvider", imageProvider);
+    qml.load(QUrl(mainQmlApp));
+    imageProvider->start();
+    return a.exec();
 }
