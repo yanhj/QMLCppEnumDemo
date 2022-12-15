@@ -42,7 +42,16 @@ Rectangle {
     Text {
         id: text2
         anchors.top: text1.bottom
-        text: list.getQStringData() + "\n" + list.getListData()[0]
+        text: "\n\nthis is QStringListTest\n" + list.getQStringData() + "\n" + list.getListData()[0]
+    }
+
+    QMapTest {
+        id: mapObj
+    }
+    Text {
+        id: text3
+        anchors.top: text2.bottom
+        text: "\n\nthis is QMapTest\n" + mapObj.getMapData()["2"]
     }
 }
 

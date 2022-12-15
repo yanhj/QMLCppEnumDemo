@@ -6,6 +6,7 @@
 #include <QtQml/QQmlEngine>
 #include "EnumTest.h"
 #include "QStringListTest.h"
+#include "QMapTest.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -27,6 +28,8 @@ int main(int argc, char *argv[]) {
 
     //注册Qml数据
     qmlRegisterType<QStringListTest>("EnumDemo", 1, 0, "QStringListTest");
+    //注册Qml数据
+    qmlRegisterType<QMapTest>("EnumDemo", 1, 0, "QMapTest");
 
     const QString mainQmlApp = QStringLiteral("qrc:///QML/FunctionButtonArea.qml");
     view.setSource(QUrl(mainQmlApp));
