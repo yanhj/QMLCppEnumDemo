@@ -12,13 +12,17 @@
 #include <QtCore/QMetaType>
 #include <QtCore/QDebug>
 
+enum class NoSpaceEnum{
+    Index_One,
+    Index_Two,
+};
 //枚举在qml中使用非方式1
 namespace EnumSpace {
     Q_NAMESPACE
     enum class Sex{
         //qml中使用的枚举必须首字母大写
-        Female,
-        Male,
+        Female = (int)NoSpaceEnum::Index_One,
+        Male = (int)NoSpaceEnum::Index_Two,
     };
     Q_ENUM_NS(Sex)
 }
