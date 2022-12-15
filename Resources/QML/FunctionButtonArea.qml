@@ -53,6 +53,15 @@ Rectangle {
         anchors.top: text2.bottom
         text: "\n\nthis is QMapTest\n" + mapObj.getMapData()["2"]
     }
+
+    StructTest {
+        id: structObj
+    }
+    Text {
+        id: text4
+        anchors.top: text3.bottom
+        text: "\n\nthis is StructTest\n" + structObj.getStructData()["name"] + "\n" + structObj.getStructData()["id"]
+    }
 }
 
 
