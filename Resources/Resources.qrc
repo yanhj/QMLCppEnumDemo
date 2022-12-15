@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>QML/FunctionButtonArea.qml</file>
+        <file>images/1.png</file>
     </qresource>
 </RCC>

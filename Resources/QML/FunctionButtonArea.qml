@@ -62,6 +62,12 @@ Rectangle {
         anchors.top: text3.bottom
         text: "\n\nthis is StructTest\n" + structObj.getStructData()["name"] + "\n" + structObj.getStructData()["id"]
     }
+
+    Image {
+        id: label5
+        anchors.top: text4.bottom
+        source: "qrc:images/1.png"
+    }
 }
 
 
